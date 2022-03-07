@@ -13,11 +13,26 @@ footer {
     width: 45%;
 }
 
-.list {
-    list-style: none;
-    padding-inline-start: 0;
+.list-group-item {
+    width: 90%;
 }
 
 .checked {
     text-decoration: line-through;
+}
+
+.title {
+    display: inline-block;
+    max-width: fit-content;
+    margin: 0;
+}
+
+section {
+    width: 100%;
+    height: max-content;
+    margin-top: 5px;
+}
+
+.list-delete{
+    width: 10%;
 }
