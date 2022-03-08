@@ -31,12 +31,21 @@ if (!empty($_GET['checked'])) {
             <?php
             $lists = getAllLists();
             foreach ($lists as $list) {
-                $tasks = getTasks($list['id']);
+                if (!empty($_GET['order'])) {
+                    if($_GET['order'] === 'asc'){
+                        $tasks = getTasksAsc($list['id']); 
+                    } else if ($_GET['order'] === 'desc'){
+                        $tasks =  getTasksDesc($list['id']);
+                    }
+                } else {
+                    $tasks = getTasks($list['id']);
+                }
             ?>
-                <div class="col-4" style="width: 18rem;">
+                <div class="col-4" style="width: 18rem !important;">
                     <div class="card">
                         <div class="card-header">
                             <?= $list['title'] ?>
+                            <a class="fa-2xl fas fa-clock text-danger float-right" href="index.php?order=desc"></a>
                         </div>
                         <ul class="list-group list-group-flush">
                             <?php
