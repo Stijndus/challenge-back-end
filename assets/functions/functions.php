@@ -19,6 +19,26 @@ function getTasks($id){
     return $result;
 }
 
+function getTasksAsc($id){
+    $pdo = dbCon();
+    $sql = 'SELECT * FROM tasks WHERE list_id=:id ORDER BY duration ASC';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->execute();
+    $result = $result->fetchAll();
+    return $result;
+}
+
+function getTasksDesc($id){
+    $pdo = dbCon();
+    $sql = 'SELECT * FROM tasks WHERE list_id=:id ORDER BY duration DESC';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->execute();
+    $result = $result->fetchAll();
+    return $result;
+}
+
 
 function createTasks($title, $desc, $list_id){
     $pdo = dbCon();
