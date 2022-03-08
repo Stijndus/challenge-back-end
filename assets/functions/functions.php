@@ -85,6 +85,10 @@ function deleteList($id){
     $result = $pdo->prepare($sql);
     $result->bindParam(':id', $id);
     $result->execute();
+    $sql = 'DELETE FROM `tasks` WHERE list_id=:id';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->execute();
 }
 
 function checkTask($id){
