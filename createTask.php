@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <?php include "assets/components/header.php"; ?>
     <main class="container">
-        <form method="POST" onsubmit="return confirm('Are you shure u want to add this task')">
+        <form action="" method="POST" onsubmit="return confirm('Are you shure u want to add this task')">
             <div class="form-group">
                 <label for="Title">Task Title</label>
                 <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" placeholder="Enter title">
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="form-group">
                 <label for="Duration">Duration</label>
-                <input type="number" class="form-control" name="duration" id="Duration" placeholder="Duration">
+                <input type="number" class="form-control" name="duration" id="Duration" placeholder="Duration" value="30">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
