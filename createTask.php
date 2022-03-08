@@ -28,12 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="POST" onsubmit="return confirm('Are you shure u want to add this task')">
             <div class="form-group">
                 <label for="Title">Task Title</label>
-                <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" placeholder="Enter title">
+                <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" placeholder="Enter title" required>
                 <small id="titleHelp" class="form-text text-muted">This is what you'll see</small>
             </div>
             <div class="form-group">
                 <label for="Duration">Duration</label>
-                <input type="number" class="form-control" name="duration" id="Duration" placeholder="Duration" value="30">
+                <input type="number" class="form-control" name="duration" id="Duration" placeholder="Duration" value="30" requiredd>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

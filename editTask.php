@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="POST" onsubmit="return confirm('Are you shure u want to add this task')">
             <div class="form-group">
                 <label for="Title">Task Title</label>
-                <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" value="<?= $task['title'] ?>">
+                <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" value="<?= $task['title'] ?>" required>
                 <small id="titleHelp" class="form-text text-muted">This is what you'll see</small>
             </div>
             <div class="form-group">
                 <label for="Duration">Duration</label>
-                <input type="number" class="form-control" name="duration" id="Duration" placeholder="Duration" value="<?= $task['duration'] ?>">
+                <input type="number" class="form-control" name="duration" id="Duration" placeholder="Duration" value="<?= $task['duration'] ?>" required>
             </div>
             <div class="form-check">
                 <?php if ($task['checked'] == 1) {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php } ?>
                 <?php if ($task['checked'] == 0) {
                 ?>
-                    <input type="checkbox" class="form-check-input" id="done" name="done">
+                    <input type="checkbox" class="form-check-input" id="done" name="done" required>
                 <?php } ?>
                 <label class="form-check-label" for="done">Is finished</label>
             </div>

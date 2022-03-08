@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main class="container">
         <form class="" action="" method="POST" onsubmit="return confirm('Are you sure you want to add this list?')">
             <div class="form-group">
-                <label for="Title">Task Title</label>
-                <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" value="<?= $list['title'] ?>">
+                <label for="Title">List Title</label>
+                <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" value="<?= $list['title'] ?>" required>
                 <small id="titleHelp" class="form-text text-muted">This is what you'll see</small>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

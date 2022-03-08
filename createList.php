@@ -23,14 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <?php include "assets/components/header.php"; ?>
-    <form class="" action="" method="POST" onsubmit="return confirm('Are you sure you want to add this list?')">
-        <div class="form-group">
-            <label for="Title">Task Title</label>
-            <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" placeholder="Enter title">
-            <small id="titleHelp" class="form-text text-muted">This is what you'll see</small>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <main class="container">
+        <form class="" action="" method="POST" onsubmit="return confirm('Are you sure you want to add this list?')">
+            <div class="form-group">
+                <label for="Title">List Title</label>
+                <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" placeholder="Enter title" required>
+                <small id="titleHelp" class="form-text text-muted">This is what you'll see</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </main>
     <?php include "assets/components/footer.php"; ?>
 
 </html>
