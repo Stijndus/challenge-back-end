@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <?php include "assets/components/header.php"; ?>
     <main class="container">
-        <form class="" action="" method="POST" onsubmit="return confirm('Are you sure you want to add this list?')">
+        <form class="" action="" method="POST" onsubmit="return confirm('Are you sure you want to edit this list?')">
             <div class="form-group">
                 <label for="Title">List Title</label>
                 <input type="text" class="form-control" id="Title" name="title" aria-describedby="titleHelp" value="<?= $list['title'] ?>" required>

@@ -78,7 +78,7 @@ if (!empty($_GET['checked'])) {
                         </ul>
                         <div class="card-body">
                             <a class="btn btn-primary" href="createTask.php?list_id=<?= $list['id'] ?>">Add Task</a>
-                            <a class="m-1 fas fa-trash-alt text-danger" onclick="return confirm(`Are you sure you want to delete this appointment?`)" href="index.php?deleted=<?= $list['id'] ?> "></a>
+                            <a class="m-1 fas fa-trash-alt text-danger" onclick="return confirm(`Are you sure you want to delete this list?`)" href="index.php?deleted=<?= $list['id'] ?> "></a>
                         </div>
                     </div>
                 </div>
