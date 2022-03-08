@@ -2,20 +2,10 @@ footer {
     width: 100%;
 }
 
-.container {
-    width: 1000px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
 .lists {
     width: 45%;
 }
 
-.list-group-item {
-    width: 90%;
-}
 
 .checked {
     text-decoration: line-through;
