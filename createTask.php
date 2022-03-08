@@ -39,5 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
     </main>
     <?php include "assets/components/footer.php"; ?>
+</body>
 
 </html>
