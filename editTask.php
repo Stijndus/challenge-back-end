@@ -7,8 +7,13 @@ $task_id = $_GET['id'];
 $task = getTask($task_id);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    updateTask($_POST['title'], $_POST['duration'],$task['id']);
-    header('location:index.php');
+    if (isset($_POST['done'])) {
+        updateTask($_POST['title'], $_POST['duration'], 1, $task['id']);
+        header('location:index.php');
+    } else {
+        updateTask($_POST['title'], $_POST['duration'], 0, $task['id']);
+        header('location:index.php');
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -36,6 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label for="Duration">Duration</label>
                 <input type="number" class="form-control" name="duration" id="Duration" placeholder="Duration" value="<?= $task['duration'] ?>">
+            </div>
+            <div class="form-check">
+                <?php if ($task['checked'] == 1) {
+                ?>
+                    <input type="checkbox" class="form-check-input" id="done" name="done" checked>
+                <?php } ?>
+                <?php if ($task['checked'] == 0) {
+                ?>
+                    <input type="checkbox" class="form-check-input" id="done" name="done">
+                <?php } ?>
+                <label class="form-check-label" for="done">Is finished</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

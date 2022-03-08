@@ -104,12 +104,13 @@ function updateList($title, $id){
     $result->execute();
 }
 
-function updateTask($title, $duration, $id){
+function updateTask($title, $duration, $checked, $id){
     $pdo = dbCon();
-    $sql = 'UPDATE `tasks` SET `title`=title, `duration`=:duration WHERE id=:id';
+    $sql = 'UPDATE `tasks` SET `title`=:title, `duration`=:duration, `checked`=:checked WHERE id=:id';
     $result = $pdo->prepare($sql);
     $result->bindParam(':id', $id);
     $result->bindParam(':title', $title);
     $result->bindParam(':duration', $duration);
+    $result->bindParam(':checked', $checked);
     $result->execute();
 }
