@@ -9,9 +9,30 @@ function getAllLists(){
     return $result;
 }
 
+function getList($id){
+    $pdo = dbCon();
+    $sql = 'SELECT * FROM lists WHERE id=:id';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->execute();
+    $result = $result->fetch();
+    return $result;
+}
+
+function getTask($id){
+    $pdo = dbCon();
+    $sql = 'SELECT * FROM tasks WHERE id=:id';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->execute();
+    $result = $result->fetch();
+    return $result;
+}
+
+
 function getTasks($id){
     $pdo = dbCon();
-    $sql = 'SELECT * FROM tasks WHERE list_id=:id';
+    $sql = 'SELECT * FROM tasks WHERE list_id=:id ORDER BY checked DESC';
     $result = $pdo->prepare($sql);
     $result->bindParam(':id', $id);
     $result->execute();
@@ -21,7 +42,7 @@ function getTasks($id){
 
 function getTasksAsc($id){
     $pdo = dbCon();
-    $sql = 'SELECT * FROM tasks WHERE list_id=:id ORDER BY duration ASC';
+    $sql = 'SELECT * FROM tasks WHERE list_id=:id ORDER BY checked DESC, duration ASC';
     $result = $pdo->prepare($sql);
     $result->bindParam(':id', $id);
     $result->execute();
@@ -31,7 +52,7 @@ function getTasksAsc($id){
 
 function getTasksDesc($id){
     $pdo = dbCon();
-    $sql = 'SELECT * FROM tasks WHERE list_id=:id ORDER BY duration DESC';
+    $sql = 'SELECT * FROM tasks WHERE list_id=:id ORDER BY checked DESC, duration DESC';
     $result = $pdo->prepare($sql);
     $result->bindParam(':id', $id);
     $result->execute();
@@ -71,5 +92,24 @@ function checkTask($id){
     $sql = 'UPDATE `tasks` SET `checked`=1 WHERE id=:id ';
     $result = $pdo->prepare($sql);
     $result->bindParam(':id', $id);
+    $result->execute();
+}
+
+function updateList($title, $id){
+    $pdo = dbCon();
+    $sql = 'UPDATE `lists` SET `title`=title WHERE id=:id';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->bindParam(':title', $title);
+    $result->execute();
+}
+
+function updateTask($title, $duration, $id){
+    $pdo = dbCon();
+    $sql = 'UPDATE `tasks` SET `title`=title, `duration`=:duration WHERE id=:id';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->bindParam(':title', $title);
+    $result->bindParam(':duration', $duration);
     $result->execute();
 }
