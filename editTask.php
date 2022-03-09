@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php } ?>
                 <?php if ($task['checked'] == 0) {
                 ?>
-                    <input type="checkbox" class="form-check-input" id="done" name="done" required>
+                    <input type="checkbox" class="form-check-input" id="done" name="done">
                 <?php } ?>
                 <label class="form-check-label" for="done">Is finished</label>
             </div>

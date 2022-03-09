@@ -101,7 +101,7 @@ function checkTask($id){
 
 function updateList($title, $id){
     $pdo = dbCon();
-    $sql = 'UPDATE `lists` SET `title`=title WHERE id=:id';
+    $sql = 'UPDATE `lists` SET `title`=:title WHERE id=:id';
     $result = $pdo->prepare($sql);
     $result->bindParam(':id', $id);
     $result->bindParam(':title', $title);

@@ -8,7 +8,7 @@ $list = getList($list_id);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     updateList($_POST['title'], $list_id);
-    header('location:index.php');
+    header('Location:index.php');
 }
 ?>
 <!DOCTYPE html>
