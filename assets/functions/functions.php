@@ -91,6 +91,14 @@ function deleteList($id){
     $result->execute();
 }
 
+function deleteTask($id){
+    $pdo = dbCon();
+    $sql = 'DELETE FROM `tasks` WHERE id=:id';
+    $result = $pdo->prepare($sql);
+    $result->bindParam(':id', $id);
+    $result->execute();
+}
+
 function checkTask($id){
     $pdo = dbCon();
     $sql = 'UPDATE `tasks` SET `checked`=1 WHERE id=:id ';

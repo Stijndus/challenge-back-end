@@ -6,6 +6,10 @@ if (!empty($_GET['deleted'])) {
     deleteList($_GET['deleted']);
 }
 
+if (!empty($_GET['deletedTask'])) {
+    deleteTask($_GET['deletedTask']);
+}
+
 if (!empty($_GET['checked'])) {
     checkTask($_GET['checked']);
 }
@@ -69,9 +73,9 @@ if (!empty($_GET['checked'])) {
                             <?php
                             foreach ($tasks as  $task) {
                                 if ($task['checked'] == 1) {
-                                    echo '<li class="list-group-item checked">' . $task['title'] . '<a class="m-1 fas fa-edit text-primary float-right center-vertical" href="editTask.php?id=' . $task['id'] . '"></a><span class="float-right">' . $task['duration'] . 'min</span></li>';
+                                    echo '<li class="list-group-item checked">' . $task['title'] . '<a class="m-1 fas fa-edit text-primary float-right center-vertical" href="editTask.php?id=' . $task['id'] . '"></a><span class="float-right">' . $task['duration'] . 'min</span><a class="m-1 fas fa-trash-alt text-danger" onclick="return confirm(`Are you sure you want to delete this task?`)" href="index.php?deletedTask= '. $task['id'] . '"></a></li>';
                                 } else {
-                                    echo '<li class="list-group-item">' . $task['title'] . '<a class="m-1 fas fa-edit text-primary float-right center-vertical" href="editTask.php?id=' . $task['id'] . '"></a><a class=" m-1  fas fa-check text-succes float-right" href="index.php?checked=' . $task['id']  . '"></a><span class="m-1 float-right">' . $task['duration'] . 'min</span></li>';
+                                    echo '<li class="list-group-item">' . $task['title'] . '<a class="m-1 fas fa-edit text-primary float-right center-vertical" href="editTask.php?id=' . $task['id'] . '"></a><a class=" m-1  fas fa-check text-succes float-right" href="index.php?checked=' . $task['id']  . '"></a><span class="m-1 float-right">' . $task['duration'] . 'min</span><a class="m-1 fas fa-trash-alt text-danger" onclick="return confirm(`Are you sure you want to delete this task?`)" href="index.php?deletedTask= '. $task['id'] . '"></a></li>';
                                 }
                             }
                             ?>
